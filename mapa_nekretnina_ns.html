@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b37b2097a71455fcbbb97058e2cd9159 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+     <div style="position: fixed; 
+     bottom: 50px; left: 50px; width: 150px; height: 130px; 
+     border:2px solid grey; z-index:9999; font-size:14px;
+     background-color:white; opacity: 0.9; padding: 10px;">
+     <b>Legenda (Cena/m²)</b><br>
+     <i style="background:green; width:10px; height:10px; display:inline-block;"></i> < 1.800 €<br>
+     <i style="background:orange; width:10px; height:10px; display:inline-block;"></i> 1.800 - 2.500 €<br>
+     <i style="background:red; width:10px; height:10px; display:inline-block;"></i> > 2.500 €
+     </div>
+     
+    
+            <div class="folium-map" id="map_b37b2097a71455fcbbb97058e2cd9159" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b37b2097a71455fcbbb97058e2cd9159 = L.map(
+                "map_b37b2097a71455fcbbb97058e2cd9159",
+                {
+                    center: [45.25167, 19.83694],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e04f2a8fa2c8d05d590e2187b956270d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e04f2a8fa2c8d05d590e2187b956270d.addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var marker_81fe1a0862b150fc38debca108cbf420 = L.marker(
+                [45.26553, 19.8293059],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_9550117ee190e8648922b9d10f2bfb80 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_03401e92d7187b689d525a1f4b0517f0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ccbf1b14427dc8f3d186e2df30539174 = $(`<div id="html_ccbf1b14427dc8f3d186e2df30539174" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novi Sad</h4>             <b>Cena:</b> 66,950 EUR<br>             <b>Kvadratura:</b> 34.0 m²<br>             <b>Cena po m²:</b> 1,969 EUR<br>         </div>         </div>`)[0];
+                popup_03401e92d7187b689d525a1f4b0517f0.setContent(html_ccbf1b14427dc8f3d186e2df30539174);
+            
+        
+
+        marker_81fe1a0862b150fc38debca108cbf420.bindPopup(popup_03401e92d7187b689d525a1f4b0517f0)
+        ;
+
+        
+    
+    
+            marker_81fe1a0862b150fc38debca108cbf420.bindTooltip(
+                `<div>
+                     Novi Sad (66950€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_81fe1a0862b150fc38debca108cbf420.setIcon(icon_9550117ee190e8648922b9d10f2bfb80);
+            
+    
+            var marker_b3f28e3de9a57d2845fbd9eccedd1803 = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_377102b4f51d189fa3d9d9f6b1c43dd5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb5c26ccc880b9f5c69286bbfbcf4da5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a0eff124803a9d6bb9ce6b9a87c0d98d = $(`<div id="html_a0eff124803a9d6bb9ce6b9a87c0d98d" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 59,500 EUR<br>             <b>Kvadratura:</b> 16.0 m²<br>             <b>Cena po m²:</b> 3,719 EUR<br>         </div>         </div>`)[0];
+                popup_eb5c26ccc880b9f5c69286bbfbcf4da5.setContent(html_a0eff124803a9d6bb9ce6b9a87c0d98d);
+            
+        
+
+        marker_b3f28e3de9a57d2845fbd9eccedd1803.bindPopup(popup_eb5c26ccc880b9f5c69286bbfbcf4da5)
+        ;
+
+        
+    
+    
+            marker_b3f28e3de9a57d2845fbd9eccedd1803.bindTooltip(
+                `<div>
+                     Sajam (59500€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b3f28e3de9a57d2845fbd9eccedd1803.setIcon(icon_377102b4f51d189fa3d9d9f6b1c43dd5);
+            
+    
+            var marker_60111aedd51c58d394d87c1c5a29ef62 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_77d5bca7ab785a174bca7d7935ed4f33 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ebea623a2ab3d6343bfc27d66f4e00e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_10c367c1621d4d71910d10cdad387b4e = $(`<div id="html_10c367c1621d4d71910d10cdad387b4e" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 108,150 EUR<br>             <b>Kvadratura:</b> 35.0 m²<br>             <b>Cena po m²:</b> 3,090 EUR<br>         </div>         </div>`)[0];
+                popup_0ebea623a2ab3d6343bfc27d66f4e00e.setContent(html_10c367c1621d4d71910d10cdad387b4e);
+            
+        
+
+        marker_60111aedd51c58d394d87c1c5a29ef62.bindPopup(popup_0ebea623a2ab3d6343bfc27d66f4e00e)
+        ;
+
+        
+    
+    
+            marker_60111aedd51c58d394d87c1c5a29ef62.bindTooltip(
+                `<div>
+                     Telep (108150€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_60111aedd51c58d394d87c1c5a29ef62.setIcon(icon_77d5bca7ab785a174bca7d7935ed4f33);
+            
+    
+            var marker_9287a9e3cd3ea45d3e89ea1919e7d6c0 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_378239be4fa83c66feb027f8e5692602 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_31096fe9373c419f96d539c203814945 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_973c22ee2ff68a98f9300ad7837fb803 = $(`<div id="html_973c22ee2ff68a98f9300ad7837fb803" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 185,400 EUR<br>             <b>Kvadratura:</b> 59.0 m²<br>             <b>Cena po m²:</b> 3,142 EUR<br>         </div>         </div>`)[0];
+                popup_31096fe9373c419f96d539c203814945.setContent(html_973c22ee2ff68a98f9300ad7837fb803);
+            
+        
+
+        marker_9287a9e3cd3ea45d3e89ea1919e7d6c0.bindPopup(popup_31096fe9373c419f96d539c203814945)
+        ;
+
+        
+    
+    
+            marker_9287a9e3cd3ea45d3e89ea1919e7d6c0.bindTooltip(
+                `<div>
+                     Telep (185400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9287a9e3cd3ea45d3e89ea1919e7d6c0.setIcon(icon_378239be4fa83c66feb027f8e5692602);
+            
+    
+            var marker_6fa2d4c175e8dca15071ed9d623ace2a = L.marker(
+                [45.2381558, 19.8296788],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_42152f647a2db335766e51ca8a213838 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_94b87f5921616e881708205ebb3ebd6b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1084a0d97e9fcf5750c34db536fc5959 = $(`<div id="html_1084a0d97e9fcf5750c34db536fc5959" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Liman 4</h4>             <b>Cena:</b> 194,670 EUR<br>             <b>Kvadratura:</b> 80.0 m²<br>             <b>Cena po m²:</b> 2,433 EUR<br>         </div>         </div>`)[0];
+                popup_94b87f5921616e881708205ebb3ebd6b.setContent(html_1084a0d97e9fcf5750c34db536fc5959);
+            
+        
+
+        marker_6fa2d4c175e8dca15071ed9d623ace2a.bindPopup(popup_94b87f5921616e881708205ebb3ebd6b)
+        ;
+
+        
+    
+    
+            marker_6fa2d4c175e8dca15071ed9d623ace2a.bindTooltip(
+                `<div>
+                     Liman 4 (194670€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6fa2d4c175e8dca15071ed9d623ace2a.setIcon(icon_42152f647a2db335766e51ca8a213838);
+            
+    
+            var marker_6df8ae79839a85e460e5a1bf04c50d93 = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_09bce64eb9789d748d689f6d65be3925 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec23241908feb452c2524639a68c221f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a82375177b5b715f48955f32c7549455 = $(`<div id="html_a82375177b5b715f48955f32c7549455" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 159,650 EUR<br>             <b>Kvadratura:</b> 54.0 m²<br>             <b>Cena po m²:</b> 2,956 EUR<br>         </div>         </div>`)[0];
+                popup_ec23241908feb452c2524639a68c221f.setContent(html_a82375177b5b715f48955f32c7549455);
+            
+        
+
+        marker_6df8ae79839a85e460e5a1bf04c50d93.bindPopup(popup_ec23241908feb452c2524639a68c221f)
+        ;
+
+        
+    
+    
+            marker_6df8ae79839a85e460e5a1bf04c50d93.bindTooltip(
+                `<div>
+                     Sajam (159650€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6df8ae79839a85e460e5a1bf04c50d93.setIcon(icon_09bce64eb9789d748d689f6d65be3925);
+            
+    
+            var marker_3b3ff89263df692afbe72db53ac6fac5 = L.marker(
+                [45.2596599, 19.8331895],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_4a933c615253a3066b78928700723771 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d87ae2058b6029e83b069568b67474da = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6464f140cd9d2fe1c5111f947a669e0e = $(`<div id="html_6464f140cd9d2fe1c5111f947a669e0e" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Bulevar</h4>             <b>Cena:</b> 144,200 EUR<br>             <b>Kvadratura:</b> 54.0 m²<br>             <b>Cena po m²:</b> 2,670 EUR<br>         </div>         </div>`)[0];
+                popup_d87ae2058b6029e83b069568b67474da.setContent(html_6464f140cd9d2fe1c5111f947a669e0e);
+            
+        
+
+        marker_3b3ff89263df692afbe72db53ac6fac5.bindPopup(popup_d87ae2058b6029e83b069568b67474da)
+        ;
+
+        
+    
+    
+            marker_3b3ff89263df692afbe72db53ac6fac5.bindTooltip(
+                `<div>
+                     Bulevar (144200€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3b3ff89263df692afbe72db53ac6fac5.setIcon(icon_4a933c615253a3066b78928700723771);
+            
+    
+            var marker_fff2d6210a6ac3fbb43548ccc6b1915c = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_477ceb0ef4803f643723c8865b2d7d2d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7123a899af6199a726233b43f86f968a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bc95d988c27a2f749541caec6bdc2678 = $(`<div id="html_bc95d988c27a2f749541caec6bdc2678" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 94,480 EUR<br>             <b>Kvadratura:</b> 33.0 m²<br>             <b>Cena po m²:</b> 2,863 EUR<br>         </div>         </div>`)[0];
+                popup_7123a899af6199a726233b43f86f968a.setContent(html_bc95d988c27a2f749541caec6bdc2678);
+            
+        
+
+        marker_fff2d6210a6ac3fbb43548ccc6b1915c.bindPopup(popup_7123a899af6199a726233b43f86f968a)
+        ;
+
+        
+    
+    
+            marker_fff2d6210a6ac3fbb43548ccc6b1915c.bindTooltip(
+                `<div>
+                     Telep (94480€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fff2d6210a6ac3fbb43548ccc6b1915c.setIcon(icon_477ceb0ef4803f643723c8865b2d7d2d);
+            
+    
+            var marker_8e13f5e6f6b6f86d823f8ea130b39c4f = L.marker(
+                [45.254413, 19.8006493],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_ee2ac972ad6e5c4678894bec6825a953 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2c6f07574f293368dcd6abc25a6737a7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7d000ae7ef23b7012f761dd972a58383 = $(`<div id="html_7d000ae7ef23b7012f761dd972a58383" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novo Naselje</h4>             <b>Cena:</b> 65,000 EUR<br>             <b>Kvadratura:</b> 31.0 m²<br>             <b>Cena po m²:</b> 2,097 EUR<br>         </div>         </div>`)[0];
+                popup_2c6f07574f293368dcd6abc25a6737a7.setContent(html_7d000ae7ef23b7012f761dd972a58383);
+            
+        
+
+        marker_8e13f5e6f6b6f86d823f8ea130b39c4f.bindPopup(popup_2c6f07574f293368dcd6abc25a6737a7)
+        ;
+
+        
+    
+    
+            marker_8e13f5e6f6b6f86d823f8ea130b39c4f.bindTooltip(
+                `<div>
+                     Novo Naselje (65000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8e13f5e6f6b6f86d823f8ea130b39c4f.setIcon(icon_ee2ac972ad6e5c4678894bec6825a953);
+            
+    
+            var marker_fedf78d967694b00ea0169a0d2607b59 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_054c99cf9c702ebb20f6f900443f3656 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e05a3bea59875995e6b12e4b3dbf472b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b1dbea3b761e7939a0364b4ebbbc7b0 = $(`<div id="html_7b1dbea3b761e7939a0364b4ebbbc7b0" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 244,400 EUR<br>             <b>Kvadratura:</b> 94.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_e05a3bea59875995e6b12e4b3dbf472b.setContent(html_7b1dbea3b761e7939a0364b4ebbbc7b0);
+            
+        
+
+        marker_fedf78d967694b00ea0169a0d2607b59.bindPopup(popup_e05a3bea59875995e6b12e4b3dbf472b)
+        ;
+
+        
+    
+    
+            marker_fedf78d967694b00ea0169a0d2607b59.bindTooltip(
+                `<div>
+                     Telep (244400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fedf78d967694b00ea0169a0d2607b59.setIcon(icon_054c99cf9c702ebb20f6f900443f3656);
+            
+    
+            var marker_24bd89069916278b2c00cf72eea910b9 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_679204417fa451d3466451f7438bd4a0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f22f6071140fa24cf202e4282827c539 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3a6bdf74fd6e54f673114bf51407abfa = $(`<div id="html_3a6bdf74fd6e54f673114bf51407abfa" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 213,200 EUR<br>             <b>Kvadratura:</b> 82.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_f22f6071140fa24cf202e4282827c539.setContent(html_3a6bdf74fd6e54f673114bf51407abfa);
+            
+        
+
+        marker_24bd89069916278b2c00cf72eea910b9.bindPopup(popup_f22f6071140fa24cf202e4282827c539)
+        ;
+
+        
+    
+    
+            marker_24bd89069916278b2c00cf72eea910b9.bindTooltip(
+                `<div>
+                     Telep (213200€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_24bd89069916278b2c00cf72eea910b9.setIcon(icon_679204417fa451d3466451f7438bd4a0);
+            
+    
+            var marker_4460e2e41076699cd367d7b2a8b358bd = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_3c27cb003f41da95871e8cf6a71e606a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93e66eedd60ae35053071d5d4bb657cf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e15e66b9567c98a5cc49f1bf6c8e627a = $(`<div id="html_e15e66b9567c98a5cc49f1bf6c8e627a" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 273,000 EUR<br>             <b>Kvadratura:</b> 105.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_93e66eedd60ae35053071d5d4bb657cf.setContent(html_e15e66b9567c98a5cc49f1bf6c8e627a);
+            
+        
+
+        marker_4460e2e41076699cd367d7b2a8b358bd.bindPopup(popup_93e66eedd60ae35053071d5d4bb657cf)
+        ;
+
+        
+    
+    
+            marker_4460e2e41076699cd367d7b2a8b358bd.bindTooltip(
+                `<div>
+                     Telep (273000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4460e2e41076699cd367d7b2a8b358bd.setIcon(icon_3c27cb003f41da95871e8cf6a71e606a);
+            
+    
+            var marker_51f219b1c287d8e936cd4dba3edb0ab3 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_0f89c597538b05829b7a476ef24cbea8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bb7f5856273a4cd0328fdef42052f2f5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_68466efd191520a62ad95e90f9c9d2c5 = $(`<div id="html_68466efd191520a62ad95e90f9c9d2c5" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 208,000 EUR<br>             <b>Kvadratura:</b> 80.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_bb7f5856273a4cd0328fdef42052f2f5.setContent(html_68466efd191520a62ad95e90f9c9d2c5);
+            
+        
+
+        marker_51f219b1c287d8e936cd4dba3edb0ab3.bindPopup(popup_bb7f5856273a4cd0328fdef42052f2f5)
+        ;
+
+        
+    
+    
+            marker_51f219b1c287d8e936cd4dba3edb0ab3.bindTooltip(
+                `<div>
+                     Telep (208000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_51f219b1c287d8e936cd4dba3edb0ab3.setIcon(icon_0f89c597538b05829b7a476ef24cbea8);
+            
+    
+            var marker_ea87a17b13cc0f13a66a8d62e95e6943 = L.marker(
+                [45.2420333, 19.7770065],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_64e6d11e8cf59ff55ab3334c4128294e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0da7b00b118b97e5942aadea91e86aa1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_537806560e78aba38e0e14aa874c0235 = $(`<div id="html_537806560e78aba38e0e14aa874c0235" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Lipov gaj</h4>             <b>Cena:</b> 173,040 EUR<br>             <b>Kvadratura:</b> 76.0 m²<br>             <b>Cena po m²:</b> 2,277 EUR<br>         </div>         </div>`)[0];
+                popup_0da7b00b118b97e5942aadea91e86aa1.setContent(html_537806560e78aba38e0e14aa874c0235);
+            
+        
+
+        marker_ea87a17b13cc0f13a66a8d62e95e6943.bindPopup(popup_0da7b00b118b97e5942aadea91e86aa1)
+        ;
+
+        
+    
+    
+            marker_ea87a17b13cc0f13a66a8d62e95e6943.bindTooltip(
+                `<div>
+                     Lipov gaj (173040€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ea87a17b13cc0f13a66a8d62e95e6943.setIcon(icon_64e6d11e8cf59ff55ab3334c4128294e);
+            
+    
+            var marker_d69f4e7a867eed89ae8b8bd2f240be9b = L.marker(
+                [45.2415432, 19.8307361],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_e030cd1544c45b31a7ebfa2bda53b996 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68bb15f07cd1d1e489391043825fa94f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1b9b69eceaa60b04e019d297c32e2383 = $(`<div id="html_1b9b69eceaa60b04e019d297c32e2383" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Centar</h4>             <b>Cena:</b> 123,600 EUR<br>             <b>Kvadratura:</b> 48.0 m²<br>             <b>Cena po m²:</b> 2,575 EUR<br>         </div>         </div>`)[0];
+                popup_68bb15f07cd1d1e489391043825fa94f.setContent(html_1b9b69eceaa60b04e019d297c32e2383);
+            
+        
+
+        marker_d69f4e7a867eed89ae8b8bd2f240be9b.bindPopup(popup_68bb15f07cd1d1e489391043825fa94f)
+        ;
+
+        
+    
+    
+            marker_d69f4e7a867eed89ae8b8bd2f240be9b.bindTooltip(
+                `<div>
+                     Centar (123600€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d69f4e7a867eed89ae8b8bd2f240be9b.setIcon(icon_e030cd1544c45b31a7ebfa2bda53b996);
+            
+    
+            var marker_acabcee47d4e39d8d1361918008e41fc = L.marker(
+                [45.2615845, 19.8130098],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_fc63d2655ac9cb252903ded05ac0784e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1eaa4d61f2f1adc0fe84258fa165fc65 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9706a64cccc3945ec530b9576c2c8c3f = $(`<div id="html_9706a64cccc3945ec530b9576c2c8c3f" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Detelinara</h4>             <b>Cena:</b> 149,350 EUR<br>             <b>Kvadratura:</b> 59.0 m²<br>             <b>Cena po m²:</b> 2,531 EUR<br>         </div>         </div>`)[0];
+                popup_1eaa4d61f2f1adc0fe84258fa165fc65.setContent(html_9706a64cccc3945ec530b9576c2c8c3f);
+            
+        
+
+        marker_acabcee47d4e39d8d1361918008e41fc.bindPopup(popup_1eaa4d61f2f1adc0fe84258fa165fc65)
+        ;
+
+        
+    
+    
+            marker_acabcee47d4e39d8d1361918008e41fc.bindTooltip(
+                `<div>
+                     Detelinara (149350€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_acabcee47d4e39d8d1361918008e41fc.setIcon(icon_fc63d2655ac9cb252903ded05ac0784e);
+            
+    
+            var marker_64fe673c268a83c7978cfa76778195d2 = L.marker(
+                [45.254413, 19.8006493],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_4ca29652fac264154cd5b07e8c527c9c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b2826bd22bc18850b0f964401044069 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6202742a576ac4e54884179315a3c71d = $(`<div id="html_6202742a576ac4e54884179315a3c71d" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novo Naselje</h4>             <b>Cena:</b> 552,278 EUR<br>             <b>Kvadratura:</b> 56.0 m²<br>             <b>Cena po m²:</b> 9,862 EUR<br>         </div>         </div>`)[0];
+                popup_6b2826bd22bc18850b0f964401044069.setContent(html_6202742a576ac4e54884179315a3c71d);
+            
+        
+
+        marker_64fe673c268a83c7978cfa76778195d2.bindPopup(popup_6b2826bd22bc18850b0f964401044069)
+        ;
+
+        
+    
+    
+            marker_64fe673c268a83c7978cfa76778195d2.bindTooltip(
+                `<div>
+                     Novo Naselje (552278€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_64fe673c268a83c7978cfa76778195d2.setIcon(icon_4ca29652fac264154cd5b07e8c527c9c);
+            
+    
+            var marker_6911ad05211c17264257a5e37021301c = L.marker(
+                [45.2371923, 19.7877485],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_6df63c85fd939a4aeac6609911b99d6e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dbd9c9f2bf6341040f47630e2d4cc8bf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_983928a64cd43a462e8d7d27bfd4d1de = $(`<div id="html_983928a64cd43a462e8d7d27bfd4d1de" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Adice</h4>             <b>Cena:</b> 127,300 EUR<br>             <b>Kvadratura:</b> 81.0 m²<br>             <b>Cena po m²:</b> 1,572 EUR<br>         </div>         </div>`)[0];
+                popup_dbd9c9f2bf6341040f47630e2d4cc8bf.setContent(html_983928a64cd43a462e8d7d27bfd4d1de);
+            
+        
+
+        marker_6911ad05211c17264257a5e37021301c.bindPopup(popup_dbd9c9f2bf6341040f47630e2d4cc8bf)
+        ;
+
+        
+    
+    
+            marker_6911ad05211c17264257a5e37021301c.bindTooltip(
+                `<div>
+                     Adice (127300€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6911ad05211c17264257a5e37021301c.setIcon(icon_6df63c85fd939a4aeac6609911b99d6e);
+            
+    
+            var marker_c2154be74dcace5bfde55d1c60567a6a = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_125935873e7949213c75bec8929c5bb7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c315e517fef8b13f5df882747ea3355 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5ac30a67dacc0d3e7a67e6fef48ba5b6 = $(`<div id="html_5ac30a67dacc0d3e7a67e6fef48ba5b6" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 185,400 EUR<br>             <b>Kvadratura:</b> 83.0 m²<br>             <b>Cena po m²:</b> 2,234 EUR<br>         </div>         </div>`)[0];
+                popup_1c315e517fef8b13f5df882747ea3355.setContent(html_5ac30a67dacc0d3e7a67e6fef48ba5b6);
+            
+        
+
+        marker_c2154be74dcace5bfde55d1c60567a6a.bindPopup(popup_1c315e517fef8b13f5df882747ea3355)
+        ;
+
+        
+    
+    
+            marker_c2154be74dcace5bfde55d1c60567a6a.bindTooltip(
+                `<div>
+                     Sajam (185400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c2154be74dcace5bfde55d1c60567a6a.setIcon(icon_125935873e7949213c75bec8929c5bb7);
+            
+    
+            var marker_29295ee195fff6815a9babb23c4db89b = L.marker(
+                [45.26553, 19.8293059],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_f861948e07cdd083151b9f7b326d0fd4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8ccfee6b07e9e50e538867a11fd2d44f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_eae4aebc28ae42fd7877a0b2f596c82d = $(`<div id="html_eae4aebc28ae42fd7877a0b2f596c82d" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novi Sad</h4>             <b>Cena:</b> 66,950 EUR<br>             <b>Kvadratura:</b> 34.0 m²<br>             <b>Cena po m²:</b> 1,969 EUR<br>         </div>         </div>`)[0];
+                popup_8ccfee6b07e9e50e538867a11fd2d44f.setContent(html_eae4aebc28ae42fd7877a0b2f596c82d);
+            
+        
+
+        marker_29295ee195fff6815a9babb23c4db89b.bindPopup(popup_8ccfee6b07e9e50e538867a11fd2d44f)
+        ;
+
+        
+    
+    
+            marker_29295ee195fff6815a9babb23c4db89b.bindTooltip(
+                `<div>
+                     Novi Sad (66950€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_29295ee195fff6815a9babb23c4db89b.setIcon(icon_f861948e07cdd083151b9f7b326d0fd4);
+            
+    
+            var marker_d4177246cbbf9ad5ab18e4cb1c1fdbcc = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_70d0a081fa18141df438f060db404469 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ffb4a2dcbe2d4bf50cdf454fe5e842de = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_322212e74d7755cf202c7f77f687678d = $(`<div id="html_322212e74d7755cf202c7f77f687678d" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 59,500 EUR<br>             <b>Kvadratura:</b> 16.0 m²<br>             <b>Cena po m²:</b> 3,719 EUR<br>         </div>         </div>`)[0];
+                popup_ffb4a2dcbe2d4bf50cdf454fe5e842de.setContent(html_322212e74d7755cf202c7f77f687678d);
+            
+        
+
+        marker_d4177246cbbf9ad5ab18e4cb1c1fdbcc.bindPopup(popup_ffb4a2dcbe2d4bf50cdf454fe5e842de)
+        ;
+
+        
+    
+    
+            marker_d4177246cbbf9ad5ab18e4cb1c1fdbcc.bindTooltip(
+                `<div>
+                     Sajam (59500€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d4177246cbbf9ad5ab18e4cb1c1fdbcc.setIcon(icon_70d0a081fa18141df438f060db404469);
+            
+    
+            var marker_dd5c5d31ca0f8764335ca38419495eb2 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_bfec30a623d0c040566dda8b4b98de17 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87bd42a9bad59b3ef8054651242df998 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_57e6027cde523b3823b968c579701e9b = $(`<div id="html_57e6027cde523b3823b968c579701e9b" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 108,150 EUR<br>             <b>Kvadratura:</b> 35.0 m²<br>             <b>Cena po m²:</b> 3,090 EUR<br>         </div>         </div>`)[0];
+                popup_87bd42a9bad59b3ef8054651242df998.setContent(html_57e6027cde523b3823b968c579701e9b);
+            
+        
+
+        marker_dd5c5d31ca0f8764335ca38419495eb2.bindPopup(popup_87bd42a9bad59b3ef8054651242df998)
+        ;
+
+        
+    
+    
+            marker_dd5c5d31ca0f8764335ca38419495eb2.bindTooltip(
+                `<div>
+                     Telep (108150€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd5c5d31ca0f8764335ca38419495eb2.setIcon(icon_bfec30a623d0c040566dda8b4b98de17);
+            
+    
+            var marker_ee031057b1ba90b5af823ef240a50edb = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_62e7957d1450070046160470d9de05e7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa397f48af88a06b8d43db52224d2eb4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d344861838538eb2b4c0c09eb5eaf8f5 = $(`<div id="html_d344861838538eb2b4c0c09eb5eaf8f5" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 185,400 EUR<br>             <b>Kvadratura:</b> 59.0 m²<br>             <b>Cena po m²:</b> 3,142 EUR<br>         </div>         </div>`)[0];
+                popup_fa397f48af88a06b8d43db52224d2eb4.setContent(html_d344861838538eb2b4c0c09eb5eaf8f5);
+            
+        
+
+        marker_ee031057b1ba90b5af823ef240a50edb.bindPopup(popup_fa397f48af88a06b8d43db52224d2eb4)
+        ;
+
+        
+    
+    
+            marker_ee031057b1ba90b5af823ef240a50edb.bindTooltip(
+                `<div>
+                     Telep (185400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ee031057b1ba90b5af823ef240a50edb.setIcon(icon_62e7957d1450070046160470d9de05e7);
+            
+    
+            var marker_a97cd1e30874c29b6fde18825ff3d062 = L.marker(
+                [45.2381558, 19.8296788],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_dc6965be008a27d26a1face8a6dfa0cc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fad7f15a896e2f95adca0d6853c18168 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e765641a877a215562a3421285f0b3bc = $(`<div id="html_e765641a877a215562a3421285f0b3bc" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Liman 4</h4>             <b>Cena:</b> 194,670 EUR<br>             <b>Kvadratura:</b> 80.0 m²<br>             <b>Cena po m²:</b> 2,433 EUR<br>         </div>         </div>`)[0];
+                popup_fad7f15a896e2f95adca0d6853c18168.setContent(html_e765641a877a215562a3421285f0b3bc);
+            
+        
+
+        marker_a97cd1e30874c29b6fde18825ff3d062.bindPopup(popup_fad7f15a896e2f95adca0d6853c18168)
+        ;
+
+        
+    
+    
+            marker_a97cd1e30874c29b6fde18825ff3d062.bindTooltip(
+                `<div>
+                     Liman 4 (194670€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a97cd1e30874c29b6fde18825ff3d062.setIcon(icon_dc6965be008a27d26a1face8a6dfa0cc);
+            
+    
+            var marker_7b55436c5aeb9e3f84c4fa1fd1fccc42 = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_f721fdaaddb7c0c4991115ea7ee8c677 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7a6ba403a17f18a064ec1cacfe0372fa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e4fb9c2d9421961252dd3ba88f472417 = $(`<div id="html_e4fb9c2d9421961252dd3ba88f472417" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 159,650 EUR<br>             <b>Kvadratura:</b> 54.0 m²<br>             <b>Cena po m²:</b> 2,956 EUR<br>         </div>         </div>`)[0];
+                popup_7a6ba403a17f18a064ec1cacfe0372fa.setContent(html_e4fb9c2d9421961252dd3ba88f472417);
+            
+        
+
+        marker_7b55436c5aeb9e3f84c4fa1fd1fccc42.bindPopup(popup_7a6ba403a17f18a064ec1cacfe0372fa)
+        ;
+
+        
+    
+    
+            marker_7b55436c5aeb9e3f84c4fa1fd1fccc42.bindTooltip(
+                `<div>
+                     Sajam (159650€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b55436c5aeb9e3f84c4fa1fd1fccc42.setIcon(icon_f721fdaaddb7c0c4991115ea7ee8c677);
+            
+    
+            var marker_2daf1711f1f01a5cf849e18189fedcf4 = L.marker(
+                [45.2596599, 19.8331895],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_047d5c5a98dd3516622d9e2e7c41c171 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb695b3c5b8f561c8cc1d061300db5d4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e9c5f82525af6e5e632d0a912cc8033 = $(`<div id="html_8e9c5f82525af6e5e632d0a912cc8033" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Bulevar</h4>             <b>Cena:</b> 144,200 EUR<br>             <b>Kvadratura:</b> 54.0 m²<br>             <b>Cena po m²:</b> 2,670 EUR<br>         </div>         </div>`)[0];
+                popup_eb695b3c5b8f561c8cc1d061300db5d4.setContent(html_8e9c5f82525af6e5e632d0a912cc8033);
+            
+        
+
+        marker_2daf1711f1f01a5cf849e18189fedcf4.bindPopup(popup_eb695b3c5b8f561c8cc1d061300db5d4)
+        ;
+
+        
+    
+    
+            marker_2daf1711f1f01a5cf849e18189fedcf4.bindTooltip(
+                `<div>
+                     Bulevar (144200€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2daf1711f1f01a5cf849e18189fedcf4.setIcon(icon_047d5c5a98dd3516622d9e2e7c41c171);
+            
+    
+            var marker_ce9e3b6050b5fe49e1703e43c1b398e4 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_5b51b3bd9840ee70e9411a3198721f1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b7dbcf748693dfea555ccf1f4a7d62e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e24771acfb6b9cbed361549a7c462996 = $(`<div id="html_e24771acfb6b9cbed361549a7c462996" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 94,480 EUR<br>             <b>Kvadratura:</b> 33.0 m²<br>             <b>Cena po m²:</b> 2,863 EUR<br>         </div>         </div>`)[0];
+                popup_1b7dbcf748693dfea555ccf1f4a7d62e.setContent(html_e24771acfb6b9cbed361549a7c462996);
+            
+        
+
+        marker_ce9e3b6050b5fe49e1703e43c1b398e4.bindPopup(popup_1b7dbcf748693dfea555ccf1f4a7d62e)
+        ;
+
+        
+    
+    
+            marker_ce9e3b6050b5fe49e1703e43c1b398e4.bindTooltip(
+                `<div>
+                     Telep (94480€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ce9e3b6050b5fe49e1703e43c1b398e4.setIcon(icon_5b51b3bd9840ee70e9411a3198721f1f);
+            
+    
+            var marker_26197d655c083179175b4a4c44ff2467 = L.marker(
+                [45.254413, 19.8006493],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_e2e3ae94a949406357abe5267c311d5a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_49c99d0d28cfc5836766585dbb3a9a3c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e3051a3b77ffa6e3341fb4a98b0df811 = $(`<div id="html_e3051a3b77ffa6e3341fb4a98b0df811" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novo Naselje</h4>             <b>Cena:</b> 65,000 EUR<br>             <b>Kvadratura:</b> 31.0 m²<br>             <b>Cena po m²:</b> 2,097 EUR<br>         </div>         </div>`)[0];
+                popup_49c99d0d28cfc5836766585dbb3a9a3c.setContent(html_e3051a3b77ffa6e3341fb4a98b0df811);
+            
+        
+
+        marker_26197d655c083179175b4a4c44ff2467.bindPopup(popup_49c99d0d28cfc5836766585dbb3a9a3c)
+        ;
+
+        
+    
+    
+            marker_26197d655c083179175b4a4c44ff2467.bindTooltip(
+                `<div>
+                     Novo Naselje (65000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_26197d655c083179175b4a4c44ff2467.setIcon(icon_e2e3ae94a949406357abe5267c311d5a);
+            
+    
+            var marker_2095d40c4408611b50ca492910f5e339 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_f82cdabe0e68e70e2f05f5d0ff467f2f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bf7f2f5dcebcb1105ded969707b64e92 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_449f0eb93e572e7ec2fa8444e0d5b5d6 = $(`<div id="html_449f0eb93e572e7ec2fa8444e0d5b5d6" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 244,400 EUR<br>             <b>Kvadratura:</b> 94.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_bf7f2f5dcebcb1105ded969707b64e92.setContent(html_449f0eb93e572e7ec2fa8444e0d5b5d6);
+            
+        
+
+        marker_2095d40c4408611b50ca492910f5e339.bindPopup(popup_bf7f2f5dcebcb1105ded969707b64e92)
+        ;
+
+        
+    
+    
+            marker_2095d40c4408611b50ca492910f5e339.bindTooltip(
+                `<div>
+                     Telep (244400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2095d40c4408611b50ca492910f5e339.setIcon(icon_f82cdabe0e68e70e2f05f5d0ff467f2f);
+            
+    
+            var marker_e7a5b164cb5d36750a5c28efdf3969f5 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_7866f4096019c227d66eb6d3286acb6c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_792f49d404fcb96d7e562537d39af271 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_478f85047736ebe0c5d271fb1844a7ba = $(`<div id="html_478f85047736ebe0c5d271fb1844a7ba" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 213,200 EUR<br>             <b>Kvadratura:</b> 82.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_792f49d404fcb96d7e562537d39af271.setContent(html_478f85047736ebe0c5d271fb1844a7ba);
+            
+        
+
+        marker_e7a5b164cb5d36750a5c28efdf3969f5.bindPopup(popup_792f49d404fcb96d7e562537d39af271)
+        ;
+
+        
+    
+    
+            marker_e7a5b164cb5d36750a5c28efdf3969f5.bindTooltip(
+                `<div>
+                     Telep (213200€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e7a5b164cb5d36750a5c28efdf3969f5.setIcon(icon_7866f4096019c227d66eb6d3286acb6c);
+            
+    
+            var marker_a40aa6857e9d62fb1e0ce987fdbed3cc = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_7ba2f537bbd34894c58bcb2ddb819593 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c0ed90e42bdfab7fb07b43667f746b8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f1e81920c46805061f1ed695ce2f2fae = $(`<div id="html_f1e81920c46805061f1ed695ce2f2fae" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 273,000 EUR<br>             <b>Kvadratura:</b> 105.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_8c0ed90e42bdfab7fb07b43667f746b8.setContent(html_f1e81920c46805061f1ed695ce2f2fae);
+            
+        
+
+        marker_a40aa6857e9d62fb1e0ce987fdbed3cc.bindPopup(popup_8c0ed90e42bdfab7fb07b43667f746b8)
+        ;
+
+        
+    
+    
+            marker_a40aa6857e9d62fb1e0ce987fdbed3cc.bindTooltip(
+                `<div>
+                     Telep (273000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a40aa6857e9d62fb1e0ce987fdbed3cc.setIcon(icon_7ba2f537bbd34894c58bcb2ddb819593);
+            
+    
+            var marker_b3c09ddaca33d35eed01a164c5fbb59e = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_27048582f361b99ec830e78da7f2a036 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05f60ea4aec0b736ad8ea67e48d167f1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3496fd2a72c7a6a603d25bbdb4b0837d = $(`<div id="html_3496fd2a72c7a6a603d25bbdb4b0837d" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 208,000 EUR<br>             <b>Kvadratura:</b> 80.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_05f60ea4aec0b736ad8ea67e48d167f1.setContent(html_3496fd2a72c7a6a603d25bbdb4b0837d);
+            
+        
+
+        marker_b3c09ddaca33d35eed01a164c5fbb59e.bindPopup(popup_05f60ea4aec0b736ad8ea67e48d167f1)
+        ;
+
+        
+    
+    
+            marker_b3c09ddaca33d35eed01a164c5fbb59e.bindTooltip(
+                `<div>
+                     Telep (208000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b3c09ddaca33d35eed01a164c5fbb59e.setIcon(icon_27048582f361b99ec830e78da7f2a036);
+            
+    
+            var marker_92d2740dc36f43d1fc925888f7535ba0 = L.marker(
+                [45.2420333, 19.7770065],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_9796ce18c89642421bb3219e8353ab4f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e62e310e0c126a901261c0da628ca0a6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7bf21436b4e6ff279e2d9b8d39c7bda1 = $(`<div id="html_7bf21436b4e6ff279e2d9b8d39c7bda1" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Lipov gaj</h4>             <b>Cena:</b> 173,040 EUR<br>             <b>Kvadratura:</b> 76.0 m²<br>             <b>Cena po m²:</b> 2,277 EUR<br>         </div>         </div>`)[0];
+                popup_e62e310e0c126a901261c0da628ca0a6.setContent(html_7bf21436b4e6ff279e2d9b8d39c7bda1);
+            
+        
+
+        marker_92d2740dc36f43d1fc925888f7535ba0.bindPopup(popup_e62e310e0c126a901261c0da628ca0a6)
+        ;
+
+        
+    
+    
+            marker_92d2740dc36f43d1fc925888f7535ba0.bindTooltip(
+                `<div>
+                     Lipov gaj (173040€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_92d2740dc36f43d1fc925888f7535ba0.setIcon(icon_9796ce18c89642421bb3219e8353ab4f);
+            
+    
+            var marker_cfd3f7d494ff33f75442b2cc097c87db = L.marker(
+                [45.2415432, 19.8307361],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_b7b09b0f516f040feedd5b3ab627c4fa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_10f788e4b3cdeec30cdb13f9c0b0483d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_60796eebb14263a10fd0ef5109aa1143 = $(`<div id="html_60796eebb14263a10fd0ef5109aa1143" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Centar</h4>             <b>Cena:</b> 123,600 EUR<br>             <b>Kvadratura:</b> 48.0 m²<br>             <b>Cena po m²:</b> 2,575 EUR<br>         </div>         </div>`)[0];
+                popup_10f788e4b3cdeec30cdb13f9c0b0483d.setContent(html_60796eebb14263a10fd0ef5109aa1143);
+            
+        
+
+        marker_cfd3f7d494ff33f75442b2cc097c87db.bindPopup(popup_10f788e4b3cdeec30cdb13f9c0b0483d)
+        ;
+
+        
+    
+    
+            marker_cfd3f7d494ff33f75442b2cc097c87db.bindTooltip(
+                `<div>
+                     Centar (123600€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cfd3f7d494ff33f75442b2cc097c87db.setIcon(icon_b7b09b0f516f040feedd5b3ab627c4fa);
+            
+    
+            var marker_7604f62479a5e85a57f4e586ea8a7941 = L.marker(
+                [45.2615845, 19.8130098],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_85ee3a6086d6bff1c1bafb7e1c0dbd51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e7b48984e722ef02ae7f0a9d39b7daf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cd484f86337958c04698af2182a33ba0 = $(`<div id="html_cd484f86337958c04698af2182a33ba0" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Detelinara</h4>             <b>Cena:</b> 149,350 EUR<br>             <b>Kvadratura:</b> 59.0 m²<br>             <b>Cena po m²:</b> 2,531 EUR<br>         </div>         </div>`)[0];
+                popup_8e7b48984e722ef02ae7f0a9d39b7daf.setContent(html_cd484f86337958c04698af2182a33ba0);
+            
+        
+
+        marker_7604f62479a5e85a57f4e586ea8a7941.bindPopup(popup_8e7b48984e722ef02ae7f0a9d39b7daf)
+        ;
+
+        
+    
+    
+            marker_7604f62479a5e85a57f4e586ea8a7941.bindTooltip(
+                `<div>
+                     Detelinara (149350€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7604f62479a5e85a57f4e586ea8a7941.setIcon(icon_85ee3a6086d6bff1c1bafb7e1c0dbd51);
+            
+    
+            var marker_2835f939ef5e0027215460d4f5255187 = L.marker(
+                [45.254413, 19.8006493],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_3a44bb950b88ed3bd1cd00a4874d8ccd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6dda8233c3c09c3b431304d342580f8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_24d54086d0e63a64676ad92f47d9d483 = $(`<div id="html_24d54086d0e63a64676ad92f47d9d483" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novo Naselje</h4>             <b>Cena:</b> 552,278 EUR<br>             <b>Kvadratura:</b> 56.0 m²<br>             <b>Cena po m²:</b> 9,862 EUR<br>         </div>         </div>`)[0];
+                popup_b6dda8233c3c09c3b431304d342580f8.setContent(html_24d54086d0e63a64676ad92f47d9d483);
+            
+        
+
+        marker_2835f939ef5e0027215460d4f5255187.bindPopup(popup_b6dda8233c3c09c3b431304d342580f8)
+        ;
+
+        
+    
+    
+            marker_2835f939ef5e0027215460d4f5255187.bindTooltip(
+                `<div>
+                     Novo Naselje (552278€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2835f939ef5e0027215460d4f5255187.setIcon(icon_3a44bb950b88ed3bd1cd00a4874d8ccd);
+            
+    
+            var marker_8512a039ba90200bf658420ae240c9cb = L.marker(
+                [45.2371923, 19.7877485],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_5d5858bcb6db74011b524ae0407ac135 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a079db3b4c6d8711c99b4a1ef970d8fb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2a2614857762600821ec289f480012b8 = $(`<div id="html_2a2614857762600821ec289f480012b8" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Adice</h4>             <b>Cena:</b> 127,300 EUR<br>             <b>Kvadratura:</b> 81.0 m²<br>             <b>Cena po m²:</b> 1,572 EUR<br>         </div>         </div>`)[0];
+                popup_a079db3b4c6d8711c99b4a1ef970d8fb.setContent(html_2a2614857762600821ec289f480012b8);
+            
+        
+
+        marker_8512a039ba90200bf658420ae240c9cb.bindPopup(popup_a079db3b4c6d8711c99b4a1ef970d8fb)
+        ;
+
+        
+    
+    
+            marker_8512a039ba90200bf658420ae240c9cb.bindTooltip(
+                `<div>
+                     Adice (127300€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8512a039ba90200bf658420ae240c9cb.setIcon(icon_5d5858bcb6db74011b524ae0407ac135);
+            
+    
+            var marker_f151495ecfa1cc0b369340ec0ac236a2 = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_947f3d8987be97c09cf4dfc912fb0183 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_25e643f42484dc9bf1b19992b7d961c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a0bf2f0a2d7aaa3982bf1cfd307024d3 = $(`<div id="html_a0bf2f0a2d7aaa3982bf1cfd307024d3" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 185,400 EUR<br>             <b>Kvadratura:</b> 83.0 m²<br>             <b>Cena po m²:</b> 2,234 EUR<br>         </div>         </div>`)[0];
+                popup_25e643f42484dc9bf1b19992b7d961c3.setContent(html_a0bf2f0a2d7aaa3982bf1cfd307024d3);
+            
+        
+
+        marker_f151495ecfa1cc0b369340ec0ac236a2.bindPopup(popup_25e643f42484dc9bf1b19992b7d961c3)
+        ;
+
+        
+    
+    
+            marker_f151495ecfa1cc0b369340ec0ac236a2.bindTooltip(
+                `<div>
+                     Sajam (185400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f151495ecfa1cc0b369340ec0ac236a2.setIcon(icon_947f3d8987be97c09cf4dfc912fb0183);
+            
+    
+            var marker_88c432787c84875f7eb265f9a5915843 = L.marker(
+                [45.26553, 19.8293059],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_298aeeca0ae3154a30ec9da850d0f8ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c2f2cff7390f9b9a0b7d10c580da6b18 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_198f7091fdcaea6c2f88e31c47592b67 = $(`<div id="html_198f7091fdcaea6c2f88e31c47592b67" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novi Sad</h4>             <b>Cena:</b> 66,950 EUR<br>             <b>Kvadratura:</b> 34.0 m²<br>             <b>Cena po m²:</b> 1,969 EUR<br>         </div>         </div>`)[0];
+                popup_c2f2cff7390f9b9a0b7d10c580da6b18.setContent(html_198f7091fdcaea6c2f88e31c47592b67);
+            
+        
+
+        marker_88c432787c84875f7eb265f9a5915843.bindPopup(popup_c2f2cff7390f9b9a0b7d10c580da6b18)
+        ;
+
+        
+    
+    
+            marker_88c432787c84875f7eb265f9a5915843.bindTooltip(
+                `<div>
+                     Novi Sad (66950€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_88c432787c84875f7eb265f9a5915843.setIcon(icon_298aeeca0ae3154a30ec9da850d0f8ff);
+            
+    
+            var marker_0c82203f0a0be13353e291f6928e9fd1 = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_243c22b6cdf184634949bf0fa7e1c088 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4beebd2f136abb431767f9053d395c02 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b5f027511c0de52fd9cf605a6c82d3a4 = $(`<div id="html_b5f027511c0de52fd9cf605a6c82d3a4" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 59,500 EUR<br>             <b>Kvadratura:</b> 16.0 m²<br>             <b>Cena po m²:</b> 3,719 EUR<br>         </div>         </div>`)[0];
+                popup_4beebd2f136abb431767f9053d395c02.setContent(html_b5f027511c0de52fd9cf605a6c82d3a4);
+            
+        
+
+        marker_0c82203f0a0be13353e291f6928e9fd1.bindPopup(popup_4beebd2f136abb431767f9053d395c02)
+        ;
+
+        
+    
+    
+            marker_0c82203f0a0be13353e291f6928e9fd1.bindTooltip(
+                `<div>
+                     Sajam (59500€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c82203f0a0be13353e291f6928e9fd1.setIcon(icon_243c22b6cdf184634949bf0fa7e1c088);
+            
+    
+            var marker_96964601ff7c36077c994789ca389435 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_f3e25ac3695f6e58b1ae2bc442edf672 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4839f6b73712633ca6e469bad55a2262 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e3d5a2e935f9e984fd17a9485a66215 = $(`<div id="html_8e3d5a2e935f9e984fd17a9485a66215" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 108,150 EUR<br>             <b>Kvadratura:</b> 35.0 m²<br>             <b>Cena po m²:</b> 3,090 EUR<br>         </div>         </div>`)[0];
+                popup_4839f6b73712633ca6e469bad55a2262.setContent(html_8e3d5a2e935f9e984fd17a9485a66215);
+            
+        
+
+        marker_96964601ff7c36077c994789ca389435.bindPopup(popup_4839f6b73712633ca6e469bad55a2262)
+        ;
+
+        
+    
+    
+            marker_96964601ff7c36077c994789ca389435.bindTooltip(
+                `<div>
+                     Telep (108150€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_96964601ff7c36077c994789ca389435.setIcon(icon_f3e25ac3695f6e58b1ae2bc442edf672);
+            
+    
+            var marker_52d1e9cb675246482f5831331031eaa3 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_6ee56d5a7775a08e91fb227ef7495936 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f1fecfe089b75e871ef2286abfa8d67d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f327e8ddff2227d31e8dbdb2cdcbc462 = $(`<div id="html_f327e8ddff2227d31e8dbdb2cdcbc462" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 185,400 EUR<br>             <b>Kvadratura:</b> 59.0 m²<br>             <b>Cena po m²:</b> 3,142 EUR<br>         </div>         </div>`)[0];
+                popup_f1fecfe089b75e871ef2286abfa8d67d.setContent(html_f327e8ddff2227d31e8dbdb2cdcbc462);
+            
+        
+
+        marker_52d1e9cb675246482f5831331031eaa3.bindPopup(popup_f1fecfe089b75e871ef2286abfa8d67d)
+        ;
+
+        
+    
+    
+            marker_52d1e9cb675246482f5831331031eaa3.bindTooltip(
+                `<div>
+                     Telep (185400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_52d1e9cb675246482f5831331031eaa3.setIcon(icon_6ee56d5a7775a08e91fb227ef7495936);
+            
+    
+            var marker_b6ca3d54e045501b8d1f25a9bed64d61 = L.marker(
+                [45.2381558, 19.8296788],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_e9bc87da3cce186cc293ea9ebc26ed86 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_97a115c5811583de8838809a1fc2cba7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b76db62973d6485871ab3a498d6bf28e = $(`<div id="html_b76db62973d6485871ab3a498d6bf28e" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Liman 4</h4>             <b>Cena:</b> 194,670 EUR<br>             <b>Kvadratura:</b> 80.0 m²<br>             <b>Cena po m²:</b> 2,433 EUR<br>         </div>         </div>`)[0];
+                popup_97a115c5811583de8838809a1fc2cba7.setContent(html_b76db62973d6485871ab3a498d6bf28e);
+            
+        
+
+        marker_b6ca3d54e045501b8d1f25a9bed64d61.bindPopup(popup_97a115c5811583de8838809a1fc2cba7)
+        ;
+
+        
+    
+    
+            marker_b6ca3d54e045501b8d1f25a9bed64d61.bindTooltip(
+                `<div>
+                     Liman 4 (194670€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b6ca3d54e045501b8d1f25a9bed64d61.setIcon(icon_e9bc87da3cce186cc293ea9ebc26ed86);
+            
+    
+            var marker_e803ba28764b71e97c6123b224cfda3e = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_de1eebabade9b3cd0b29f851d40ee54b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_246c9ca1e338245731fccb24f47a1b87 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c52f849018d4ac4d3ac16ae259443c17 = $(`<div id="html_c52f849018d4ac4d3ac16ae259443c17" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 159,650 EUR<br>             <b>Kvadratura:</b> 54.0 m²<br>             <b>Cena po m²:</b> 2,956 EUR<br>         </div>         </div>`)[0];
+                popup_246c9ca1e338245731fccb24f47a1b87.setContent(html_c52f849018d4ac4d3ac16ae259443c17);
+            
+        
+
+        marker_e803ba28764b71e97c6123b224cfda3e.bindPopup(popup_246c9ca1e338245731fccb24f47a1b87)
+        ;
+
+        
+    
+    
+            marker_e803ba28764b71e97c6123b224cfda3e.bindTooltip(
+                `<div>
+                     Sajam (159650€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e803ba28764b71e97c6123b224cfda3e.setIcon(icon_de1eebabade9b3cd0b29f851d40ee54b);
+            
+    
+            var marker_352c4ce1f9b1408a6611442e0edf3734 = L.marker(
+                [45.2596599, 19.8331895],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_42cfb3172c582525d9efc65c6aecc4b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1e03f91b103ebff900e2209072ee385 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f1089d4758bcfed7cb294405c0c6997b = $(`<div id="html_f1089d4758bcfed7cb294405c0c6997b" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Bulevar</h4>             <b>Cena:</b> 144,200 EUR<br>             <b>Kvadratura:</b> 54.0 m²<br>             <b>Cena po m²:</b> 2,670 EUR<br>         </div>         </div>`)[0];
+                popup_a1e03f91b103ebff900e2209072ee385.setContent(html_f1089d4758bcfed7cb294405c0c6997b);
+            
+        
+
+        marker_352c4ce1f9b1408a6611442e0edf3734.bindPopup(popup_a1e03f91b103ebff900e2209072ee385)
+        ;
+
+        
+    
+    
+            marker_352c4ce1f9b1408a6611442e0edf3734.bindTooltip(
+                `<div>
+                     Bulevar (144200€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_352c4ce1f9b1408a6611442e0edf3734.setIcon(icon_42cfb3172c582525d9efc65c6aecc4b2);
+            
+    
+            var marker_b4e30ff225dd27d29775ccc6e3628cc0 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_a5504a36bf531cdb6da4be007bbb9c09 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ba242fe08b8832a997bacebf9a8f06d7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8404abe8b20f4b8299688679049cb982 = $(`<div id="html_8404abe8b20f4b8299688679049cb982" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 94,480 EUR<br>             <b>Kvadratura:</b> 33.0 m²<br>             <b>Cena po m²:</b> 2,863 EUR<br>         </div>         </div>`)[0];
+                popup_ba242fe08b8832a997bacebf9a8f06d7.setContent(html_8404abe8b20f4b8299688679049cb982);
+            
+        
+
+        marker_b4e30ff225dd27d29775ccc6e3628cc0.bindPopup(popup_ba242fe08b8832a997bacebf9a8f06d7)
+        ;
+
+        
+    
+    
+            marker_b4e30ff225dd27d29775ccc6e3628cc0.bindTooltip(
+                `<div>
+                     Telep (94480€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b4e30ff225dd27d29775ccc6e3628cc0.setIcon(icon_a5504a36bf531cdb6da4be007bbb9c09);
+            
+    
+            var marker_15967168e2988093b15585bc34c0aab5 = L.marker(
+                [45.254413, 19.8006493],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_9c535a126389870d4ea1a549a4c99ac2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a6f728a2728ce404fcf4b09b4db84ab3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_393daf6f3a7914d0961ba0ec5d4fb52f = $(`<div id="html_393daf6f3a7914d0961ba0ec5d4fb52f" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novo Naselje</h4>             <b>Cena:</b> 65,000 EUR<br>             <b>Kvadratura:</b> 31.0 m²<br>             <b>Cena po m²:</b> 2,097 EUR<br>         </div>         </div>`)[0];
+                popup_a6f728a2728ce404fcf4b09b4db84ab3.setContent(html_393daf6f3a7914d0961ba0ec5d4fb52f);
+            
+        
+
+        marker_15967168e2988093b15585bc34c0aab5.bindPopup(popup_a6f728a2728ce404fcf4b09b4db84ab3)
+        ;
+
+        
+    
+    
+            marker_15967168e2988093b15585bc34c0aab5.bindTooltip(
+                `<div>
+                     Novo Naselje (65000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_15967168e2988093b15585bc34c0aab5.setIcon(icon_9c535a126389870d4ea1a549a4c99ac2);
+            
+    
+            var marker_2d5462028831238a59e58f03bbfbed68 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_44e867e525bc45eee87580c76137a905 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ecfb3b430a880e222d0fe6a689de999d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b6e926c75569e2df76c274b7d2ab56e0 = $(`<div id="html_b6e926c75569e2df76c274b7d2ab56e0" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 244,400 EUR<br>             <b>Kvadratura:</b> 94.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_ecfb3b430a880e222d0fe6a689de999d.setContent(html_b6e926c75569e2df76c274b7d2ab56e0);
+            
+        
+
+        marker_2d5462028831238a59e58f03bbfbed68.bindPopup(popup_ecfb3b430a880e222d0fe6a689de999d)
+        ;
+
+        
+    
+    
+            marker_2d5462028831238a59e58f03bbfbed68.bindTooltip(
+                `<div>
+                     Telep (244400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2d5462028831238a59e58f03bbfbed68.setIcon(icon_44e867e525bc45eee87580c76137a905);
+            
+    
+            var marker_35c1c1b8f0073a409fd987ed91523e8a = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_cf63b84361d277431b48c13a5d21d49a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d3142a8489cf63a716d46d50caa91bdb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4506935167f645a1c8ac2fee2617ecd5 = $(`<div id="html_4506935167f645a1c8ac2fee2617ecd5" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 213,200 EUR<br>             <b>Kvadratura:</b> 82.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_d3142a8489cf63a716d46d50caa91bdb.setContent(html_4506935167f645a1c8ac2fee2617ecd5);
+            
+        
+
+        marker_35c1c1b8f0073a409fd987ed91523e8a.bindPopup(popup_d3142a8489cf63a716d46d50caa91bdb)
+        ;
+
+        
+    
+    
+            marker_35c1c1b8f0073a409fd987ed91523e8a.bindTooltip(
+                `<div>
+                     Telep (213200€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_35c1c1b8f0073a409fd987ed91523e8a.setIcon(icon_cf63b84361d277431b48c13a5d21d49a);
+            
+    
+            var marker_6aa6cb9a4084286e9562f63202686b46 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_be22a6c70af2e1ffa968bbd11fe8c4f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_321a1854ca1f925ad73548f51d020a7a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_16e79184bcd72585f62c7339baa4610f = $(`<div id="html_16e79184bcd72585f62c7339baa4610f" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 273,000 EUR<br>             <b>Kvadratura:</b> 105.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_321a1854ca1f925ad73548f51d020a7a.setContent(html_16e79184bcd72585f62c7339baa4610f);
+            
+        
+
+        marker_6aa6cb9a4084286e9562f63202686b46.bindPopup(popup_321a1854ca1f925ad73548f51d020a7a)
+        ;
+
+        
+    
+    
+            marker_6aa6cb9a4084286e9562f63202686b46.bindTooltip(
+                `<div>
+                     Telep (273000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6aa6cb9a4084286e9562f63202686b46.setIcon(icon_be22a6c70af2e1ffa968bbd11fe8c4f9);
+            
+    
+            var marker_a5a0b1dc18e29ea337287237d7a0e5b8 = L.marker(
+                [45.2371417, 19.8123992],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_94ea345a8eedb9599f8f73e0a447d404 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb798455cbf8821d5feae0f29bac9c28 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1265bcc31e491423ec518949cf0a2467 = $(`<div id="html_1265bcc31e491423ec518949cf0a2467" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Telep</h4>             <b>Cena:</b> 208,000 EUR<br>             <b>Kvadratura:</b> 80.0 m²<br>             <b>Cena po m²:</b> 2,600 EUR<br>         </div>         </div>`)[0];
+                popup_eb798455cbf8821d5feae0f29bac9c28.setContent(html_1265bcc31e491423ec518949cf0a2467);
+            
+        
+
+        marker_a5a0b1dc18e29ea337287237d7a0e5b8.bindPopup(popup_eb798455cbf8821d5feae0f29bac9c28)
+        ;
+
+        
+    
+    
+            marker_a5a0b1dc18e29ea337287237d7a0e5b8.bindTooltip(
+                `<div>
+                     Telep (208000€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a5a0b1dc18e29ea337287237d7a0e5b8.setIcon(icon_94ea345a8eedb9599f8f73e0a447d404);
+            
+    
+            var marker_123f43a2d35979926429f326b876af2b = L.marker(
+                [45.2420333, 19.7770065],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_c2220fd11ef3da0dd3bb077eebe57fa7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_358ebcb090fe060d4899a587da3cbd28 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ecacb36e853c3d866385008ac8003025 = $(`<div id="html_ecacb36e853c3d866385008ac8003025" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Lipov gaj</h4>             <b>Cena:</b> 173,040 EUR<br>             <b>Kvadratura:</b> 76.0 m²<br>             <b>Cena po m²:</b> 2,277 EUR<br>         </div>         </div>`)[0];
+                popup_358ebcb090fe060d4899a587da3cbd28.setContent(html_ecacb36e853c3d866385008ac8003025);
+            
+        
+
+        marker_123f43a2d35979926429f326b876af2b.bindPopup(popup_358ebcb090fe060d4899a587da3cbd28)
+        ;
+
+        
+    
+    
+            marker_123f43a2d35979926429f326b876af2b.bindTooltip(
+                `<div>
+                     Lipov gaj (173040€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_123f43a2d35979926429f326b876af2b.setIcon(icon_c2220fd11ef3da0dd3bb077eebe57fa7);
+            
+    
+            var marker_0d8e9c06daa2cc766a9a4c0af51be03f = L.marker(
+                [45.2415432, 19.8307361],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_2428b9f211876d627f0b1a8f709beb16 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_833b958d2897a7f6971d90bf10e71159 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1e5706c890be42d0852ab052eb8403ec = $(`<div id="html_1e5706c890be42d0852ab052eb8403ec" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Centar</h4>             <b>Cena:</b> 123,600 EUR<br>             <b>Kvadratura:</b> 48.0 m²<br>             <b>Cena po m²:</b> 2,575 EUR<br>         </div>         </div>`)[0];
+                popup_833b958d2897a7f6971d90bf10e71159.setContent(html_1e5706c890be42d0852ab052eb8403ec);
+            
+        
+
+        marker_0d8e9c06daa2cc766a9a4c0af51be03f.bindPopup(popup_833b958d2897a7f6971d90bf10e71159)
+        ;
+
+        
+    
+    
+            marker_0d8e9c06daa2cc766a9a4c0af51be03f.bindTooltip(
+                `<div>
+                     Centar (123600€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0d8e9c06daa2cc766a9a4c0af51be03f.setIcon(icon_2428b9f211876d627f0b1a8f709beb16);
+            
+    
+            var marker_7453b86d94d9d2bd487af3c168f56ed8 = L.marker(
+                [45.2615845, 19.8130098],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_035d5517a156ae7c58cfd3de3a5c96ab = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3188bdcb8cbaa38f252acff72832f533 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c1fbf42b8054fdb4fe0c8eb5f7e23578 = $(`<div id="html_c1fbf42b8054fdb4fe0c8eb5f7e23578" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Detelinara</h4>             <b>Cena:</b> 149,350 EUR<br>             <b>Kvadratura:</b> 59.0 m²<br>             <b>Cena po m²:</b> 2,531 EUR<br>         </div>         </div>`)[0];
+                popup_3188bdcb8cbaa38f252acff72832f533.setContent(html_c1fbf42b8054fdb4fe0c8eb5f7e23578);
+            
+        
+
+        marker_7453b86d94d9d2bd487af3c168f56ed8.bindPopup(popup_3188bdcb8cbaa38f252acff72832f533)
+        ;
+
+        
+    
+    
+            marker_7453b86d94d9d2bd487af3c168f56ed8.bindTooltip(
+                `<div>
+                     Detelinara (149350€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7453b86d94d9d2bd487af3c168f56ed8.setIcon(icon_035d5517a156ae7c58cfd3de3a5c96ab);
+            
+    
+            var marker_fdfb0169aa62bb407356e5bb106175ba = L.marker(
+                [45.254413, 19.8006493],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_eac160437b4406019efe2e15c321ffcd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_77d0d1cafc95ba4f2cac5402355c84ef = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b958b8fca71f161144c842aac2f7dfb4 = $(`<div id="html_b958b8fca71f161144c842aac2f7dfb4" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Novo Naselje</h4>             <b>Cena:</b> 552,278 EUR<br>             <b>Kvadratura:</b> 56.0 m²<br>             <b>Cena po m²:</b> 9,862 EUR<br>         </div>         </div>`)[0];
+                popup_77d0d1cafc95ba4f2cac5402355c84ef.setContent(html_b958b8fca71f161144c842aac2f7dfb4);
+            
+        
+
+        marker_fdfb0169aa62bb407356e5bb106175ba.bindPopup(popup_77d0d1cafc95ba4f2cac5402355c84ef)
+        ;
+
+        
+    
+    
+            marker_fdfb0169aa62bb407356e5bb106175ba.bindTooltip(
+                `<div>
+                     Novo Naselje (552278€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fdfb0169aa62bb407356e5bb106175ba.setIcon(icon_eac160437b4406019efe2e15c321ffcd);
+            
+    
+            var marker_db754729475792d3a48ba95654a9e0ab = L.marker(
+                [45.2371923, 19.7877485],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_5cbb984e558600029630f96e2a6cc41d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88808cde04b29de96e8b70f775e36972 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7108bbda11708e1dde2c57ba895ed1f3 = $(`<div id="html_7108bbda11708e1dde2c57ba895ed1f3" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Adice</h4>             <b>Cena:</b> 127,300 EUR<br>             <b>Kvadratura:</b> 81.0 m²<br>             <b>Cena po m²:</b> 1,572 EUR<br>         </div>         </div>`)[0];
+                popup_88808cde04b29de96e8b70f775e36972.setContent(html_7108bbda11708e1dde2c57ba895ed1f3);
+            
+        
+
+        marker_db754729475792d3a48ba95654a9e0ab.bindPopup(popup_88808cde04b29de96e8b70f775e36972)
+        ;
+
+        
+    
+    
+            marker_db754729475792d3a48ba95654a9e0ab.bindTooltip(
+                `<div>
+                     Adice (127300€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_db754729475792d3a48ba95654a9e0ab.setIcon(icon_5cbb984e558600029630f96e2a6cc41d);
+            
+    
+            var marker_f346f40d7e48b3c3fc49122f0b583275 = L.marker(
+                [45.2581372, 19.8202913],
+                {
+}
+            ).addTo(map_b37b2097a71455fcbbb97058e2cd9159);
+        
+    
+            var icon_3b4de8b0935a8f6483ba23327fbeb536 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ee2580a57966045edae531302433eb6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ef3ad0ccb1abfab8c2e3c34471be4860 = $(`<div id="html_ef3ad0ccb1abfab8c2e3c34471be4860" style="width: 100.0%; height: 100.0%;">         <div style="width: 200px">             <h4>Sajam</h4>             <b>Cena:</b> 185,400 EUR<br>             <b>Kvadratura:</b> 83.0 m²<br>             <b>Cena po m²:</b> 2,234 EUR<br>         </div>         </div>`)[0];
+                popup_3ee2580a57966045edae531302433eb6.setContent(html_ef3ad0ccb1abfab8c2e3c34471be4860);
+            
+        
+
+        marker_f346f40d7e48b3c3fc49122f0b583275.bindPopup(popup_3ee2580a57966045edae531302433eb6)
+        ;
+
+        
+    
+    
+            marker_f346f40d7e48b3c3fc49122f0b583275.bindTooltip(
+                `<div>
+                     Sajam (185400€)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f346f40d7e48b3c3fc49122f0b583275.setIcon(icon_3b4de8b0935a8f6483ba23327fbeb536);
+            
+</script>
+</html>
